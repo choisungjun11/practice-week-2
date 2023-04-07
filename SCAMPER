@@ -10,24 +10,93 @@ HTML
   <title>WOW CHeckerboard</title>
 </head>
 <body>
-  <div class="container">
-    <p class="draggable" draggable="true">포스트잇1</p>
-    <p class="draggable" draggable="true">포스트잇2</p>
-    <p class="draggable" draggable="true">포스트잇3</p>
-    <p class="draggable" draggable="true">포스트잇4</p>
-    <p class="draggable" draggable="true">포스트잇5</p>
-    <p class="draggable" draggable="true">포스트잇6</p>
-    <p class="draggable" draggable="true">포스트잇7</p>
-  </div>
-  <div class="container">
-    <p class="draggable" draggable="true">포스트잇1</p>
-    <p class="draggable" draggable="true">포스트잇2</p>
-    <p class="draggable" draggable="true">포스트잇3</p>
-    <p class="draggable" draggable="true">포스트잇4</p>
-    <p class="draggable" draggable="true">포스트잇5</p>
-    <p class="draggable" draggable="true">포스트잇6</p>
-    <p class="draggable" draggable="true">포스트잇7</p>
-  </div>
+  <table border="1">
+    <th>S</th>
+    <th>C</th>
+    <th>A</th>
+    <th>M</th>
+    <th>P</th>
+    <th>E</th>
+    <th>R</th>
+
+    <tbody class="container">
+      <tr>
+        <td class="draggable" draggable="true">1</td>
+        <td class="draggable" draggable="true">2</td>
+        <td class="draggable" draggable="true">3</td>
+        <td class="draggable" draggable="true">4</td>
+        <td class="draggable" draggable="true">5</td>
+        <td class="draggable" draggable="true">6</td>
+        <td class="draggable" draggable="true">7</td>
+      </tr>
+    </tbody>
+    <tbody class="container">
+      <tr>
+        <td class="draggable" draggable="true">1</td>
+        <td class="draggable" draggable="true">2</td>
+        <td class="draggable" draggable="true">3</td>
+        <td class="draggable" draggable="true">4</td>
+        <td class="draggable" draggable="true">5</td>
+        <td class="draggable" draggable="true">6</td>
+        <td class="draggable" draggable="true">7</td>
+      </tr>
+    </tbody>
+    <tbody class="container">
+      <tr>
+        <td class="draggable" draggable="true">1</td>
+        <td class="draggable" draggable="true">2</td>
+        <td class="draggable" draggable="true">3</td>
+        <td class="draggable" draggable="true">4</td>
+        <td class="draggable" draggable="true">5</td>
+        <td class="draggable" draggable="true">6</td>
+        <td class="draggable" draggable="true">7</td>
+      </tr>
+    </tbody>
+    <tbody class="container">
+      <tr>
+        <td class="draggable" draggable="true">1</td>
+        <td class="draggable" draggable="true">2</td>
+        <td class="draggable" draggable="true">3</td>
+        <td class="draggable" draggable="true">4</td>
+        <td class="draggable" draggable="true">5</td>
+        <td class="draggable" draggable="true">6</td>
+        <td class="draggable" draggable="true">7</td>
+      </tr>
+    </tbody>
+    <tbody class="container">
+      <tr>
+        <td class="draggable" draggable="true">1</td>
+        <td class="draggable" draggable="true">2</td>
+        <td class="draggable" draggable="true">3</td>
+        <td class="draggable" draggable="true">4</td>
+        <td class="draggable" draggable="true">5</td>
+        <td class="draggable" draggable="true">6</td>
+        <td class="draggable" draggable="true">7</td>
+      </tr>
+    </tbody>
+    <tbody class="container">
+      <tr>
+        <td class="draggable" draggable="true">1</td>
+        <td class="draggable" draggable="true">2</td>
+        <td class="draggable" draggable="true">3</td>
+        <td class="draggable" draggable="true">4</td>
+        <td class="draggable" draggable="true">5</td>
+        <td class="draggable" draggable="true">6</td>
+        <td class="draggable" draggable="true">7</td>
+      </tr>
+    </tbody>
+    <tbody class="container">
+      <tr>
+        <td class="draggable" draggable="true">1</td>
+        <td class="draggable" draggable="true">2</td>
+        <td class="draggable" draggable="true">3</td>
+        <td class="draggable" draggable="true">4</td>
+        <td class="draggable" draggable="true">5</td>
+        <td class="draggable" draggable="true">6</td>
+        <td class="draggable" draggable="true">7</td>
+      </tr>
+    </tbody>
+    </table>
 </body>
 </html>
 
@@ -38,14 +107,14 @@ body {
   }
   
   .container {
-    background-color: #333;
+    background-color: blue;
     padding: 1rem;
     margin-top: 1rem;
   }
   
   .draggable {
     padding: 1rem;
-    background-color: white;
+    background-color: yellow;
     border: 1px solid black;
     cursor: move;
   }
@@ -68,9 +137,10 @@ draggables.forEach(draggable => {
     draggable.classList.remove('dragging')
   })
 })
+
 containers.forEach(container => {
   container.addEventListener('dragover', e => {
-    e.preventDefault()
+    e.stopPropagation()
     const afterElement = getDragAfterElement(container, e.clientY)
     const draggable = document.querySelector('.dragging')
     if (afterElement == null) {
